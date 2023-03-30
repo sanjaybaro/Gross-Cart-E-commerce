@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign in Page</title>
+    <style>
+      body {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0px;
+        background-color: rgb(88, 74, 74);
+      }
+
+      form {
+        background-color: #f5f5f5;
+        border-radius: 5px;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        padding: 20px;
+        width: 400px;
+      }
+
+      form label {
+        display: block;
+        font-weight: bold;
+        margin-bottom: 5px;
+        margin-left: 20px;
+      }
+
+      form input[type="text"],
+      form input[type="email"],
+      form input[type="tel"],
+      form input[type="password"] {
+        border: 2px solid #ddd;
+        border-radius: 5px;
+        font-size: 16px;
+        padding: 10px;
+        margin-bottom: 15px;
+        width: 80%;
+        margin-left: 20px;
+      }
+
+      form button[type="submit"] {
+        background-color: #902735;
+        border: none;
+        border-radius: 5px;
+        color: #fff;
+        font-size: 16px;
+        padding: 10px;
+        width: 100%;
+      }
+
+      form button[type="submit"]:hover {
+        cursor: pointer;
+        background-color: #609351;
+        box-shadow: rgba(3, 102, 214, 0.3) 0px 0px 0px 3px;
+      }
+
+      #sign-in-form {
+        display: none;
+      }
+      form h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+        text-align: center;
+      }
+      img {
+        width: 40%;
+        margin: auto;
+        margin-left: 120px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="create-account-form">
+      <div>
+        <img src="./image/grosscart logo1.png" alt="" />
+        <h2>Create and Account</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" required />
+      </div>
+      <div>
+        <label for="email">Email:</label>
+        <input type="email" id="email" required />
+      </div>
+      <div>
+        <label for="mobile">Mobile:</label>
+        <input type="tel" id="mobile" pattern="[0-9]{10}" required />
+      </div>
+      <div>
+        <label for="password">Password:</label>
+        <input type="password" id="password" required />
+      </div>
+      <div>
+        <label for="confirm-password">Confirm Password:</label>
+        <input type="password" id="confirm-password" required />
+      </div>
+      <button type="submit">Create Account</button>
+    </form>
+    <form id="sign-in-form">
+      <div>
+        <h2>Sign In</h2>
+        <label for="sign-in-email">Email:</label>
+        <input type="email" id="sign-in-email" required />
+      </div>
+      <div>
+        <label for="sign-in-password">Password:</label>
+        <input type="password" id="sign-in-password" required />
+      </div>
+      <button type="submit">Sign In</button>
+    </form>
+  </body>
+  <script>
+    const createAccountForm = document.querySelector("#create-account-form");
+    const signInForm = document.querySelector("#sign-in-form");
+
+    if (createAccountForm) {
+      createAccountForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const name = document.querySelector("#name").value.trim();
+        const email = document.querySelector("#email").value.trim();
+        const mobile = document.querySelector("#mobile").value.trim();
+        const password = document.querySelector("#password").value.trim();
+        const confirmPassword = document
+          .querySelector("#confirm-password")
+          .value.trim();
+
+        if (password !== confirmPassword) {
+          alert("Passwords do not match. Please try again.");
+          return;
+        }
+
+        const account = {
+          name,
+          email,
+          mobile,
+          password,
+        };
+
+        alert("Account created successfully!");
+
+        createAccountForm.style.display = "none";
+        signInForm.style.display = "block";
+
+        signInForm.setAttribute("data-account", JSON.stringify(account));
+      });
+    }
+
+    if (signInForm) {
+      signInForm.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const email = document.querySelector("#sign-in-email").value.trim();
+        const password = document
+          .querySelector("#sign-in-password")
+          .value.trim();
+
+        const account = JSON.parse(signInForm.getAttribute("data-account"));
+
+        if (email === account.email && password === account.password) {
+          window.location.href = "./index.html";
+        } else {
+          alert("Invalid credentials. Please try again.");
+        }
+      });
+    }
+  </script>
+</html>
