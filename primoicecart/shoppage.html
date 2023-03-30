@@ -1,3 +1,476 @@
-<script>
-    const Data=[{}]
-</script>
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>GROSSCART</title>
+    <link rel="stylesheet" href="./style1.css" />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/flickity@2/dist/flickity.min.css"
+    />
+  </head>
+  <body>
+    <div>
+      <h4>GET RS 50 OFF ON ORDERS ABOVE RS 100</h4>
+    </div>
+    <div class="nav1">
+      <img src="./image/grosscart logo1.png" alt="error" />
+      <!-- <input placeholder="Search for products" type="text" id="search" /> -->
+      <div id="loc1">
+        <input type="text" placeholder="search here" />
+        <img src="./image/location_pin_002.jpg" />
+        <p>Location</p>
+      </div>
+      <div id="usernave">
+        <div id="user1">
+          <img src="./image/user logo.jpg" />
+          <a href="./signinpage.html">Sign in</a>
+        </div>
+        <div id="list1">
+          <img src="./image/whislist logo.png" />
+          <a href="./wishlist.html">Whislist</a>
+        </div>
+        <div id="cart1">
+          <img src="./image/cart logo.jpg" />
+          <a href="./cart.html">Cart</a>
+        </div>
+      </div>
+    </div>
+    <div class="nav2">
+      <div id="navcon2">
+        <div>Stores Near Me</div>
+        <div>Products Near Me</div>
+        <div>Fashion</div>
+        <div>Beauty and Personal care</div>
+        <div>Home Decor</div>
+        <div>Electronics</div>
+      </div>
+    </div>
+  </body>
+  <script>
+    const Data = [
+      {
+        name: "Horizon Blue",
+        price: 500,
+        category: "simple",
+        id: 1,
+        img: "./productimage/simple1.jpg",
+      },
+      {
+        name: "Water Dark Blue",
+        price: 600,
+        category: "simple",
+        id: 2,
+        img: "./productimage/simple2.jpg",
+      },
+      {
+        name: "Simple Pink",
+        price: 700,
+        category: "simple",
+        id: 3,
+        img: "./productimage/simple3.jpg",
+      },
+      {
+        name: "Fav Orange",
+        price: 800,
+        category: "simple",
+        id: 4,
+        img: "./productimage/simple4.jpg",
+      },
+      {
+        name: "Simple Dark Green",
+        price: 900,
+        category: "simple",
+        id: 5,
+        img: "./productimage/simple5.jpg",
+      },
+      {
+        name: "Light Sky",
+        price: 1000,
+        category: "simple",
+        id: 6,
+        img: "./productimage/simple6.jpg",
+      },
+      {
+        name: "ken Blue",
+        price: 1100,
+        category: "simple",
+        id: 7,
+        img: "./productimage/simple7.jpg",
+      },
+      {
+        name: "Irony Green",
+        price: 1200,
+        category: "simple",
+        id: 8,
+        img: "./productimage/simple8.jpg",
+      },
+      {
+        name: "Embro Blue",
+        price: 1300,
+        category: "simple",
+        id: 9,
+        img: "./productimage/simple9.jpg",
+      },
+      {
+        name: "Flue Sink",
+        price: 1400,
+        category: "simple",
+        id: 10,
+        img: "./productimage/simple10.jpg",
+      },
+      {
+        name: "Reshmi Gold",
+        price: 1500,
+        category: "simple",
+        id: 11,
+        img: "./productimage/simple11.png",
+      },
+      {
+        name: "Tania Blue",
+        price: 1600,
+        category: "simple",
+        id: 12,
+        img: "./productimage/simple12.jpg",
+      },
+      {
+        name: "Brown Floral",
+        price: 1700,
+        category: "simple",
+        id: 13,
+        img: "./productimage/simple13.jpg",
+      },
+      {
+        name: "Red Velvet",
+        price: 1800,
+        category: "simple",
+        id: 14,
+        img: "./productimage/simple14.jpg",
+      },
+      {
+        name: "Print Brown",
+        price: 1900,
+        category: "simple",
+        id: 15,
+        img: "./productimage/simple15.jpg",
+      },
+      {
+        name: "Red Flue",
+        price: 550,
+        category: "pattern",
+        id: 16,
+        img: "./productimage/pattern1.jpg",
+      },
+      {
+        name: "Kaska Rose",
+        price: 620,
+        category: "pattern",
+        id: 17,
+        img: "./productimage/pattern2.jpg",
+      },
+      {
+        name: "Dragon Print",
+        price: 680,
+        category: "pattern",
+        id: 18,
+        img: "./productimage/pattern3.jpg",
+      },
+      {
+        name: "Blue Sink",
+        price: 750,
+        category: "pattern",
+        id: 19,
+        img: "./productimage/pattern4.jpg",
+      },
+      {
+        name: "Pattern Line",
+        price: 800,
+        category: "pattern",
+        id: 20,
+        img: "./productimage/pattern5.jpg",
+      },
+      {
+        name: "Rainbow Line",
+        price: 900,
+        category: "pattern",
+        id: 21,
+        img: "./productimage/pattern6.jpg",
+      },
+      {
+        name: "Pink Floral",
+        price: 1000,
+        category: "pattern",
+        id: 22,
+        img: "./productimage/pattern7.jpg",
+      },
+      {
+        name: "Blue Embro Dark",
+        price: 1100,
+        category: "pattern",
+        id: 23,
+        img: "./productimage/pattern8.jpg",
+      },
+      {
+        name: "Grazzy Green",
+        price: 1200,
+        category: "pattern",
+        id: 24,
+        img: "./productimage/pattern9.jpg",
+      },
+      {
+        name: "Glitter Gold",
+        price: 3000,
+        category: "pattern",
+        id: 25,
+        img: "./productimage/pattern10.jpg",
+      },
+      {
+        name: "Glitter Orange",
+        price: 2000,
+        category: "pattern",
+        id: 26,
+        img: "./productimage/pattern11.jpg",
+      },
+      {
+        name: "Pink Sink",
+        price: 1500,
+        category: "pattern",
+        id: 27,
+        img: "./productimage/pattern12.jpg",
+      },
+      {
+        name: "Violet Dream",
+        price: 1600,
+        category: "pattern",
+        id: 28,
+        img: "./productimage/pattern13.jpg",
+      },
+      {
+        name: "Glitter Green",
+        price: 2500,
+        category: "pattern",
+        id: 29,
+        img: "./productimage/pattern14.jpg",
+      },
+      {
+        name: "Glitter Silver",
+        price: 2800,
+        category: "pattern",
+        id: 30,
+        img: "./productimage/pattern15.jpg",
+      },
+      {
+        name: "Vila Green",
+        price: 1000,
+        category: "silk",
+        id: 31,
+        img: "./productimage/silk1.jpg",
+      },
+      {
+        name: "Reshmi Silk",
+        price: 1400,
+        category: "silk",
+        id: 32,
+        img: "./productimage/silk2.jpg",
+      },
+      {
+        name: "Green Reshmi Silk",
+        price: 1600,
+        category: "silk",
+        id: 33,
+        img: "./productimage/silk3.jpg",
+      },
+      {
+        name: "Light Reshmi Silk",
+        price: 1800,
+        category: "silk",
+        id: 34,
+        img: "./productimage/silk4.jpg",
+      },
+      {
+        name: "Red Silk",
+        price: 1500,
+        category: "silk",
+        id: 35,
+        img: "./productimage/silk5.jpg",
+      },
+      {
+        name: "Sky Silk",
+        price: 2100,
+        category: "silk",
+        id: 36,
+        img: "./productimage/silk6.jpg",
+      },
+      {
+        name: "Dark Blue Silk",
+        price: 1900,
+        category: "silk",
+        id: 37,
+        img: "./productimage/silk7.jpg",
+      },
+      {
+        name: "Violet Silk",
+        price: 2200,
+        category: "silk",
+        id: 38,
+        img: "./productimage/silk8.jpg",
+      },
+      {
+        name: "Riwas Silk",
+        price: 3000,
+        category: "silk",
+        id: 39,
+        img: "./productimage/silk9.jpg",
+      },
+      {
+        name: "Riwas Dark Pink",
+        price: 3500,
+        category: "silk",
+        id: 40,
+        img: "./productimage/silk10.jpg",
+      },
+      {
+        name: "Kenzi Silk",
+        price: 4000,
+        category: "silk",
+        id: 41,
+        img: "./productimage/silk11.jpg",
+      },
+      {
+        name: "Light Green Silk",
+        price: 2400,
+        category: "silk",
+        id: 42,
+        img: "./productimage/silk12.jpg",
+      },
+      {
+        name: "Floral Silk Awas",
+        price: 3500,
+        category: "silk",
+        id: 43,
+        img: "./productimage/silk13.jpg",
+      },
+      {
+        name: "Red Bloom Silk",
+        price: 2000,
+        category: "silk",
+        id: 44,
+        img: "./productimage/silk14.jpg",
+      },
+      {
+        name: "Hazle silk",
+        price: 3200,
+        category: "silk",
+        id: 45,
+        img: "./productimage/silk15.jpg",
+      },
+      {
+        name: "Gaytri Saree",
+        price: 2500,
+        category: "traditional",
+        id: 46,
+        img: "./productimage/traditional1.jpg",
+      },
+      {
+        name: "Yellow Saree",
+        price: 2800,
+        category: "traditional",
+        id: 47,
+        img: "./productimage/traditional2.jpg",
+      },
+      {
+        name: "Huma Green",
+        price: 3000,
+        category: "traditional",
+        id: 48,
+        img: "./productimage/traditional3.jpg",
+      },
+      {
+        name: "Hazle Purple ",
+        price: 4000,
+        category: "traditional",
+        id: 49,
+        img: "./productimage/traditional4.jpg",
+      },
+      {
+        name: "Black Daimond",
+        price: 3000,
+        category: "traditional",
+        id: 50,
+        img: "./productimage/traditional5.jpg",
+      },
+      {
+        name: "Khadi Trade",
+        price: 1800,
+        category: "traditional",
+        id: 51,
+        img: "./productimage/traditional6.jpg",
+      },
+      {
+        name: "Reshma Green",
+        price: 1400,
+        category: "traditional",
+        id: 52,
+        img: "./productimage/traditional7.jpg",
+      },
+      {
+        name: "Blue Bordered",
+        price: 1200,
+        category: "traditional",
+        id: 53,
+        img: "./productimage/traditional8.jpg",
+      },
+      {
+        name: "Savan Green",
+        price: 1600,
+        category: "traditional",
+        id: 54,
+        img: "./productimage/traditional9.jpg",
+      },
+      {
+        name: "Oswal Trade Green ",
+        price: 4000,
+        category: "traditional",
+        id: 55,
+        img: "./productimage/traditional10.jpg",
+      },
+      {
+        name: "Janvi Trade Green ",
+        price: 3800,
+        category: "traditional",
+        id: 56,
+        img: "./productimage/traditional11.jpg",
+      },
+      {
+        name: "White Queen",
+        price: 2700,
+        category: "traditional",
+        id: 57,
+        img: "./productimage/traditional12.png",
+      },
+      {
+        name: "Gold Tradition",
+        price: 2500,
+        category: "traditional",
+        id: 58,
+        img: "./productimage/traditional3.jpg",
+      },
+      {
+        name: "Yellow Mark",
+        price: 3400,
+        category: "traditional",
+        id: 59,
+        img: "./productimage/traditional14.png",
+      },
+      {
+        name: "Cream White Saree",
+        price: 2500,
+        category: "traditional",
+        id: 60,
+        img: "./productimage/traditional15.png",
+      },
+    ];
+  </script>
+</html>
