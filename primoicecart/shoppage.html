@@ -36,6 +36,10 @@
           <img src="./image/cart logo.jpg" />
           <a href="./cart.html">Cart</a>
         </div>
+        <div id="home1">
+          <img src="./image/home1.jpg" />
+          <a href="./index.html">Home</a>
+        </div>
       </div>
     </div>
     <div class="nav2">
@@ -46,6 +50,67 @@
         <div>Beauty and Personal care</div>
         <div>Home Decor</div>
         <div>Electronics</div>
+      </div>
+    </div>
+    <div class="page1">
+      <div class="con1">
+        <div class="filter1">
+          <label for="name">Category :</label>
+          <select id="filter">
+            <option value="">Select Category</option>
+            <option value="simple">simple</option>
+            <option value="pattern">pattern</option>
+            <option value="silk">silk</option>
+            <option value="traditional">traditional</option>
+          </select>
+        </div>
+        <div id="filter2">
+          <label for="price">Filter By Price Range :</label>
+          <input placeholder="From" type="number" id="lower" />
+          <input placeholder="To" type="number" id="upper" />
+          <button id="filter-btn">Search</button>
+        </div>
+        <div class="sorting">
+          <label for="price">Sort By Price :</label>
+          <select id="sort">
+            <option value="">Sort By Price</option>
+            <option value="lth">Low To High</option>
+            <option value="htl">High To Low</option>
+          </select>
+        </div>
+      </div>
+      <div class="con2"></div>
+    </div>
+    <div class="footer">
+      <div id="payment">
+        <h4 class="about">About Us</h4>
+        <p>
+          India's most convenient online grocery channel Buyerapp Fresh and
+          Smart makes your grocery shopping even simpler. No more hassles of
+          sweating it out in crowded markets, grocery shops & supermarkets - now
+          shop from the comfort of your home; office, or on the move. We offer
+          you the convenience of shopping for everything that you need for your
+          home - be it fresh fruits & vegetables, rice, dals, oil, packaged
+          food, dairy item, frozen, pet food, household cleaning items &
+          personal care products from a single virtual store.
+        </p>
+        <h4 class="about">PAYMENT OPTIONS</h4>
+        <img src="./image/checkout -1.png" alt="" />
+      </div>
+      <div>
+        <h4 class="about">OUR COMPANY</h4>
+        <p>About Us</p>
+        <p>Contact us</p>
+      </div>
+      <div>
+        <h4 class="about">TOP CATEGORIES</h4>
+        <p>Grocery</p>
+      </div>
+      <div>
+        <h4 class="about">POLICIES & INFO</h4>
+        <p>Privacy Policy</p>
+        <h4 class="about">SUPPORT</h4>
+        <p>For Help, send an email to care@grosscart.com</p>
       </div>
     </div>
   </body>
@@ -472,5 +537,92 @@
         img: "./productimage/traditional15.png",
       },
     ];
+    let con2 = document.querySelector(".con2");
+    let productData = JSON.parse(localStorage.getItem("cart")) || [];
+    Display(Data);
+    function Display(data) {
+      con2.innerHTML = "";
+      data.forEach((data) => {
+        let card = document.createElement("div");
+        let img = document.createElement("img");
+        let name = document.createElement("h2");
+        let price = document.createElement("h3");
+        let category = document.createElement("h3");
+        let addTocart = document.createElement("button");
+
+        img.src = data.img;
+        name.innerText = data.name;
+        price.innerText = `₹${data.price}`;
+        category.innerText = data.category;
+        addTocart.innerText = "Add To Cart";
+
+        addTocart.addEventListener("click", function () {
+          if (checkAvailable(data)) {
+            alert("Product Already Added in Cart");
+          } else {
+            productData.push({ ...data, quantity: 1 });
+            localStorage.setItem("cart", JSON.stringify(productData));
+            alert("product added to cart");
+          }
+        });
+
+        card.append(img, name, price, category, addTocart);
+        con2.append(card);
+      });
+    }
+
+    let filterby = document.querySelector("#filter");
+    filterby.addEventListener("change", function () {
+      if (filterby.value === "") {
+        Display(Data);
+      } else {
+        let filterData = Data.filter(function (data) {
+          if (data.category === filterby.value) {
+            return true;
+          } else {
+            return false;
+          }
+        });
+        Display(filterData);
+      }
+    });
+
+    let sortproduct = document.getElementById("sort");
+    sortproduct.addEventListener("change", function () {
+      if (sortproduct.value === "") {
+        Display(Data);
+      }
+      if (sortproduct.value === "lth") {
+        let temp = [...Data];
+        temp.sort((a, b) => a.price - b.price);
+        Display(temp);
+      }
+      if (sortproduct.value === "htl") {
+        let temp = [...Data];
+        temp.sort((a, b) => b.price - a.price);
+        Display(temp);
+      }
+    });
+    let filterBTN = document.getElementById("filter-btn");
+    let lowerfilter = document.getElementById("lower");
+    let upperfilter = document.getElementById("upper");
+    filterBTN.addEventListener("click", () => {
+      let filtered = Data.filter((element) => {
+        return (
+          element.price >= +lowerfilter.value &&
+          element.price <= +upperfilter.value
+        );
+      });
+      Display(filtered);
+    });
+
+    function checkAvailable(data) {
+      for (let i = 0; i < productData.length; i++) {
+        if (data.id === productData[i].id) {
+          return true;
+        }
+      }
+      return false;
+    }
   </script>
 </html>
