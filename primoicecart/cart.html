@@ -60,7 +60,7 @@
         <div class="Remove">Remove Item</div>
         <div class="MRP">MRP</div>
       </div>
-      <hr />
+      <!-- <hr /> -->
 
       <div id="itemcart">
         <!-- append her -->
@@ -134,7 +134,7 @@
 
         img.src = data.img;
         name.innerText = data.name;
-        price.innerText = `₹${data.price}`;
+        price.innerText = `₹${data.price * data.quantity}`;
         remove.innerText = "Delete";
         increment.innerText = "+";
         decrement.innerText = "-";
@@ -157,8 +157,6 @@
         });
         increment.addEventListener("click", function () {
           data.quantity++;
-          //let newprice=document.querySelector("#mdiv > h3").innerText;
-
           localStorage.setItem("cart", JSON.stringify(productData));
           Display();
         });

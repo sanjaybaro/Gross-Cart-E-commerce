@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Page</title>
+    <link rel="stylesheet" href="./style2.css" />
+  </head>
+  <body>
+    <div class="first1">
+      <div class="logoadmin"><img src="./image/grosscart logo1.png" /></div>
+    </div>
+    <h1 class="head">Admin Management System</h1>
+    <hr />
+    <h2>Customer Details for Product</h2>
+    <div class="spandiv">
+      <h3>Total Count of Product :-<span id="count">0</span></h3>
+    </div>
+    <hr />
+    <div class="table">
+      <table>
+        <thead>
+          <tr>
+            <th>Product Image</th>
+            <th>Product Name</th>
+            <th>Quantity</th>
+            <th>Total Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Append here reference -->
+        </tbody>
+      </table>
+    </div>
+  </body>
+  <script>
+    let productData = JSON.parse(localStorage.getItem("cart")) || [];
+    let Tbody = document.querySelector("tbody");
+    let Count = document.getElementById("count");
+
+    function Display() {
+      Tbody.innerHTML = null;
+      productData.forEach((data) => {
+        let Tr = document.createElement("tr");
+        let img = document.createElement("img");
+        let Name = document.createElement("td");
+        let Quantity = document.createElement("td");
+        let Price = document.createElement("td");
+
+        img.src = data.img;
+        Name.innerText = data.name;
+        Quantity.innerText = data.quantity;
+        Price.innerText = `₹${data.price * data.quantity}`;
+
+        Tr.append(img, Name, Quantity, Price);
+        Tbody.append(Tr);
+      });
+    }
+    Count.innerText = productData.length;
+    Display(productData);
+  </script>
+</html>
