@@ -150,6 +150,8 @@ div > h4 {
 }
 h1 {
   text-align: center;
+  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
+    "Lucida Sans", Arial, sans-serif;
 }
 .carousel {
   background-color: rgb(233, 224, 224);
@@ -308,11 +310,16 @@ h1 {
   /* height: 800px; */
   margin: auto;
   background-color: white;
+  padding-top: 10px;
 }
 .row-details {
   display: flex;
   justify-content: space-around;
   font-weight: 600;
+  background-color: burlywood;
+  height: 30px;
+  padding-top: 10px;
+  margin-bottom: 10px;
 }
 #itemcart {
   /* border: 1px solid rgb(35, 11, 169); */
@@ -350,7 +357,7 @@ h1 {
   font-size: 20px;
 }
 #mdiv {
-  color: rgb(195, 131, 13);
+  color: rgb(124, 89, 23);
   /* border: 1px solid violet; */
   width: 10%;
   display: flex;
@@ -363,6 +370,8 @@ h1 {
   justify-content: space-between;
   align-items: center;
   text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  margin-bottom: 10px;
 }
 .MRP {
   padding-right: 50px;
@@ -372,13 +381,34 @@ h1 {
   text-align: center;
 }
 #cart-total {
-  color: rgb(195, 131, 13);
+  color: rgb(124, 89, 23);
 }
 #incbtn {
   border-radius: 50%;
   border: none;
+  background-color: rgb(200, 184, 173);
 }
 #decbtn {
   border-radius: 50%;
   border: none;
+  background-color: rgb(200, 184, 173);
+}
+#newcard {
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
+}
+#newcard > img {
+  width: 50%;
+  padding-top: 10px;
+}
+.Quantity {
+  margin-right: 40px;
+}
+#rdiv > button {
+  border: none;
+}
+#rdiv > button:hover {
+  background-color: aqua;
+}
+.Remove {
+  margin-right: 20px;
 }
